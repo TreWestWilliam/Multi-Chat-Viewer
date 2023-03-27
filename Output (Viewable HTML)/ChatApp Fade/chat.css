@@ -1,0 +1,66 @@
+.color1 {color: #a395a9;}
+.color2 {color: #b6a0ad;}
+.color3 {color: #c5b7b7;}
+.color4 {color: #d1cece;}
+.color5 {color: #d8dadb;}
+
+body 
+{
+    background-color:rgb(0,0,0);
+    color:white;
+    height: 100.001vh;
+}
+#test {
+    background-color:.color1;
+}
+.message {
+    color:white;
+    display:flex;
+    animation-name: fade;
+    -webkit-transition: 15s ease-in;
+  -moz-transition: 15s ease-in;
+  -o-transition: 15s ease-in;
+  transition: 15s ease-in;
+    animation-duration: 15s;
+    animation-direction:normal;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    /*
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+    */
+}
+.chatmsg{
+    float:left;
+}
+.source {
+    float:left;
+    padding-top: 10px;
+}
+.user{
+    float:left;
+    padding-left:5px;
+    padding-right:5px;
+    color:deepskyblue;
+}
+.sysSource {
+    color:yellow;
+    float:left;
+}
+#parent * {
+    padding-left:1%;
+    overflow-anchor: none;
+}
+#bottom {
+    overflow-anchor: auto;
+    height:1px;
+}
+
+/* The animation code */
+@keyframes fade{
+  0%   {color:white;display:flex;}
+    95%  {color:darkgray;display:flex; opacity:1;}
+  100% {display:none;color:black;opacity:0;}
+}
+
+/* The element to apply the animation to */

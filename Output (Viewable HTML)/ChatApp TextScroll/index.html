@@ -1,0 +1,97 @@
+<link rel="stylesheet" type="text/css" href="chat.css" />
+<script>
+let socket = new WebSocket("ws://127.0.0.1:4444");
+let currentTimeout;
+
+socket.onopen = function(e) {
+    console.log("[open] Connection Established!");
+    console.log("Messaging server");
+    //const msg = { type:"message", text:"isListener", client:"TreListen" };
+    //socket.send(JSON.stringify(msg));
+    socket.send("isListener");
+};
+
+socket.onmessage = function(event) {
+    console.log("[MSG]: Data received from server:" +event.data);
+    if (event.data == "Welcome, Listener!") 
+    {
+        document.getElementById("Initialized").innerHTML = "Starting!";
+        socket.send("msgplz");
+        currentTimeout = setTimeout(heartBeat,1500);
+    }else if (event.data.toString().charAt(0) == '{') 
+    {
+        // probably received json lmao
+        chatjson = JSON.parse( event.data );
+        
+        console.log(chatjson);
+        
+        for (i=0;i<chatjson.length;i++) 
+        {
+            if (chatjson[i].source == "system") 
+            {
+                document.getElementById("chatWindow").innerHTML = document.getElementById("chatWindow").innerHTML +
+                '<div class=message><p class=sysSource>System:</p><p class=chatmsg>'+chatjson[i].content+'</p></div>'
+            }
+            else if (chatjson[i].source == "youtube")
+            {
+                document.getElementById("chatWindow").innerHTML = document.getElementById("chatWindow").innerHTML +
+                '<div class=message ><img height=30 width=40 class=source src="yt_logo.png"></img><p class=user>'+chatjson[i].user+'</p><p class=chatmsg>'+chatjson[i].content+'</p></div>'
+                
+            }
+            else if (chatjson[i].source == "twitch")
+            {
+                document.getElementById("chatWindow").innerHTML = document.getElementById("chatWindow").innerHTML +
+                '<div class=message ><img height=30 width=30 class=source src="ttv_logo.png"></img><p class=user>'+chatjson[i].user+'</p><p class=chatmsg>'+chatjson[i].content+'</p></div>'
+            }
+        }
+    } else if (event.data == 'NoData') 
+    {
+        console.log('No new data received.');
+    }
+    /*
+    while(document.getElementById("chatWindow").childNodes.length>10) 
+    {
+        let tenth = document.getElementById("chatWindow").childNodes[10];
+        tenth.parentNode.removeChild[10];
+    }*/
+};
+    
+function heartBeat() 
+{
+    socket.send("msgplz");
+    if(socket.readyState != WebSocket.CLOSED)
+    {
+        currentTimeout = setTimeout(heartBeat,750);
+        //clearTimeout(currentTimeout);
+    }
+    
+}
+    
+socket.onclose = function(event) {
+    if (event.wasClean){
+        console.log('[Close] Connection Closed Securely.  ${event.code} reason: ${event.reason}');
+    }
+    else 
+    {
+        console.log('[close] Connection died!!!');
+    }
+};
+    
+socket.onerror = function(error) {
+    console.log('Error!  Error!');
+};
+</script>
+
+<div id="Initialized">
+</div>
+<div id="parent">
+    <div id="chatWindow">
+
+
+    </div>
+    <div id="bottom"></div>
+</div>
+<script>
+    //This is to auto pin to the bottom
+document.scrollingElement.scroll(0, 1);
+</script>
