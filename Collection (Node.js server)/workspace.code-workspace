@@ -1,0 +1,52 @@
+{
+	"folders": [
+		{
+			"name": "Marlin-bugfix-2.0.x",
+			"path": "E:\\Marlin Update\\Marlin-bugfix-2.0.x"
+		},
+		{
+			"name": "Arduino Play",
+			"path": "..\\..\\Documents\\PlatformIO\\Projects\\Arduino Play"
+		},
+		{
+			"name": "FastLED Test",
+			"path": "..\\..\\Documents\\PlatformIO\\Projects\\FastLED Test"
+		},
+		{
+			"name": "NES Test",
+			"path": "..\\..\\Documents\\PlatformIO\\Projects\\NES Test"
+		},
+		{
+			"path": "..\\..\\Documents\\PlatformIO\\Projects\\AutoPlanter"
+		},
+		{
+			"name": "12E Autoplanter",
+			"path": "..\\..\\Documents\\PlatformIO\\Projects\\12E Autoplanter"
+		},
+		{
+			"name": "12e screentest",
+			"path": "..\\..\\Documents\\PlatformIO\\Projects\\12e screentest"
+		},
+		{
+			"name": "Uno Stepper Driver",
+			"path": "..\\..\\Documents\\PlatformIO\\Projects\\Uno Stepper Driver"
+		},
+		{
+			"name": "Nes Controller Sender 8266",
+			"path": "..\\..\\Documents\\PlatformIO\\Projects\\Nes Controller Sender 8266"
+		},
+		{
+			"name": "ESP32 Test2",
+			"path": "..\\..\\Documents\\PlatformIO\\Projects\\ESP32 Test2"
+		},
+		{
+			"name": "8266LED",
+			"path": "..\\..\\Documents\\PlatformIO\\Projects\\8266LED"
+		},
+		{
+			"name": "32LED",
+			"path": "..\\..\\Documents\\PlatformIO\\Projects\\32LED"
+		}
+	],
+	"settings": {}
+}

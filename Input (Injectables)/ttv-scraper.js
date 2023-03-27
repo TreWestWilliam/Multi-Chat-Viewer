@@ -73,32 +73,3 @@ socket.onopen = function(e) {
     interval = setInterval(heartBeat,1500);
 };
 currentTimeout();
-
-
-
-        //let username = obj.childNodes[1].childNodes[1].childNodes[0].childNodes[0].innerHTML;
-
-        /*
-        let user = obj.childNodes[1];
-        console.log('User: ' + user);
-        let usern = user.childNodes[1];
-        console.log('Usern: ' + usern);
-        let userna = usern.childNodes[0];
-        console.log('Userna: ' + userna);
-        let usernam = userna.childNodes[0];
-        console.log('Usernam: ' + usernam);
-        let username = usernam.innerHTML;
-        console.log('username:'+username);
-        */
-        //let message = obj.childNodes[3].childNodes[0].innerHTML;
-
-/*
-        let user = obj.childNodes[1];
-        console.log(user);
-        let usern = user.childNodes[1];
-        console.log(usern);
-        let userna = usern.childNodes[0];
-        console.log(userna);
-        let usernam = userna.childNodes[0];
-        console.log(usernam);
-        let username = usernam.innerHTML;*/
